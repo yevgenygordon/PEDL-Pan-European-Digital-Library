@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5424F67129A76CB000E83983 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5424F67029A76CB000E83983 /* GoogleService-Info.plist */; };
+		5424F67429A76DED00E83983 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5424F67329A76DED00E83983 /* FirebaseAnalytics */; };
+		5424F67629A76DED00E83983 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5424F67529A76DED00E83983 /* FirebaseAuth */; };
+		5424F67829A76DED00E83983 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5424F67729A76DED00E83983 /* FirebaseDatabase */; };
+		5424F67C29A7731000E83983 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424F67B29A7731000E83983 /* AuthService.swift */; };
+		5424F67F29A77E2800E83983 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424F67E29A77E2800E83983 /* LoginView.swift */; };
+		5424F68129A77E4F00E83983 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5424F68029A77E4F00E83983 /* MainView.swift */; };
 		546FACC0299E70C600C2ACF2 /* PEDLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FACBF299E70C600C2ACF2 /* PEDLApp.swift */; };
 		546FACC2299E70C600C2ACF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FACC1299E70C600C2ACF2 /* ContentView.swift */; };
 		546FACC4299E70C700C2ACF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546FACC3299E70C700C2ACF2 /* Assets.xcassets */; };
 		546FACC7299E70C700C2ACF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 546FACC6299E70C700C2ACF2 /* Preview Assets.xcassets */; };
+		546FACD2299E757C00C2ACF2 /* EuropeanaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FACD1299E757C00C2ACF2 /* EuropeanaViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5424F67029A76CB000E83983 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5424F67929A7723100E83983 /* PEDL.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PEDL.entitlements; sourceTree = "<group>"; };
+		5424F67B29A7731000E83983 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5424F67E29A77E2800E83983 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5424F68029A77E4F00E83983 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		546FACBC299E70C600C2ACF2 /* PEDL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PEDL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		546FACBF299E70C600C2ACF2 /* PEDLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEDLApp.swift; sourceTree = "<group>"; };
 		546FACC1299E70C600C2ACF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		546FACC3299E70C700C2ACF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		546FACC6299E70C700C2ACF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		546FACD1299E757C00C2ACF2 /* EuropeanaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanaViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +40,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5424F67829A76DED00E83983 /* FirebaseDatabase in Frameworks */,
+				5424F67429A76DED00E83983 /* FirebaseAnalytics in Frameworks */,
+				5424F67629A76DED00E83983 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5424F67A29A772CA00E83983 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5424F67B29A7731000E83983 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5424F67D29A77D9900E83983 /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				5424F67E29A77E2800E83983 /* LoginView.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
 		546FACB3299E70C600C2ACF2 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +84,12 @@
 		546FACBE299E70C600C2ACF2 /* PEDL */ = {
 			isa = PBXGroup;
 			children = (
+				5424F67A29A772CA00E83983 /* Service */,
+				5424F67929A7723100E83983 /* PEDL.entitlements */,
+				5424F67029A76CB000E83983 /* GoogleService-Info.plist */,
+				546FACD0299E720A00C2ACF2 /* View */,
+				546FACCF299E71E000C2ACF2 /* Model */,
+				546FACCD299E710300C2ACF2 /* ViewModel */,
 				546FACBF299E70C600C2ACF2 /* PEDLApp.swift */,
 				546FACC1299E70C600C2ACF2 /* ContentView.swift */,
 				546FACC3299E70C700C2ACF2 /* Assets.xcassets */,
@@ -65,6 +104,30 @@
 				546FACC6299E70C700C2ACF2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		546FACCD299E710300C2ACF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				546FACD1299E757C00C2ACF2 /* EuropeanaViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		546FACCF299E71E000C2ACF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		546FACD0299E720A00C2ACF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5424F67D29A77D9900E83983 /* AuthView */,
+				5424F68029A77E4F00E83983 /* MainView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +146,11 @@
 			dependencies = (
 			);
 			name = PEDL;
+			packageProductDependencies = (
+				5424F67329A76DED00E83983 /* FirebaseAnalytics */,
+				5424F67529A76DED00E83983 /* FirebaseAuth */,
+				5424F67729A76DED00E83983 /* FirebaseDatabase */,
+			);
 			productName = PEDL;
 			productReference = 546FACBC299E70C600C2ACF2 /* PEDL.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +179,9 @@
 				Base,
 			);
 			mainGroup = 546FACB3299E70C600C2ACF2;
+			packageReferences = (
+				5424F67229A76DED00E83983 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 546FACBD299E70C600C2ACF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +198,7 @@
 			files = (
 				546FACC7299E70C700C2ACF2 /* Preview Assets.xcassets in Resources */,
 				546FACC4299E70C700C2ACF2 /* Assets.xcassets in Resources */,
+				5424F67129A76CB000E83983 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +209,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546FACD2299E757C00C2ACF2 /* EuropeanaViewModel.swift in Sources */,
+				5424F68129A77E4F00E83983 /* MainView.swift in Sources */,
 				546FACC2299E70C600C2ACF2 /* ContentView.swift in Sources */,
 				546FACC0299E70C600C2ACF2 /* PEDLApp.swift in Sources */,
+				5424F67F29A77E2800E83983 /* LoginView.swift in Sources */,
+				5424F67C29A7731000E83983 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +340,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PEDL/PEDL.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PEDL/Preview Content\"";
@@ -292,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PEDL/PEDL.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PEDL/Preview Content\"";
@@ -337,6 +415,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5424F67229A76DED00E83983 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5424F67329A76DED00E83983 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5424F67229A76DED00E83983 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5424F67529A76DED00E83983 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5424F67229A76DED00E83983 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		5424F67729A76DED00E83983 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5424F67229A76DED00E83983 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 546FACB4299E70C600C2ACF2 /* Project object */;
 }
