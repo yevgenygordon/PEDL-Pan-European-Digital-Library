@@ -9,17 +9,30 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var authService: AuthService
+    @ObservedObject var viewModel = EuropeanaViewModel()
     var body: some View {
         
-        VStack{
+        ZStack{
             
-            Text("Hello \(authService.user?.email ?? "")!")
             
-            Button("Log Out"){
-                authService.signOut()
-            }.padding(40)
+            VStack{
+                HStack{
+                    Image("PEDL_Logo_Small")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 195)
+                        .padding(16)
+                    Spacer()
+                    
+                }
+                
+                Spacer() 
+                
+            }
+            
             
         }
+        
     }
 }
 

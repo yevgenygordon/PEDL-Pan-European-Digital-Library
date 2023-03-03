@@ -14,7 +14,29 @@ struct ContentView: View {
     var body: some View {
         Group{
             if authService.user != nil{
-                MainView()
+              
+                
+                TabView(selection: .constant(1)){
+                   
+                    
+                    CollectionView()
+                        .tabItem({
+                            Label("My Collection",image: "button_myCollection")
+                        })
+                        .tag(0)
+                    MainView()
+                        .tabItem({
+                            Label("Home", image: "button_Home")
+                        })
+                        .tag(1)
+                    ProfilView(firstName: "Vasilij", familyName: "Terkin", email: "vt@mail.ru", color: "", blackMode: false)
+                        .tabItem({
+                            Label("Profil", image: "button_Profil")
+                        })
+                        .tag(2)
+                   
+                }
+                
             }else{
                 LoginView()
             }
@@ -24,35 +46,10 @@ struct ContentView: View {
         
         
         
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            
-            Text(viewModel.title)
-                .background(Color.white)
-                .padding()
-                .font(.system(size: 23))
-            
-            
-            
-            Button(action: {
-                self.viewModel.getInfo()
-                
-                
-                
-            }) {
-                Text("Get Data")
-                    .padding()
-                    .bold()
-                    .font(.system(size: 46))
-                    .background(Color.white)
-                    .cornerRadius(24)
-                
-            }
-        }
-        .padding()
+        
+        
+        
+        
     }
 }
 

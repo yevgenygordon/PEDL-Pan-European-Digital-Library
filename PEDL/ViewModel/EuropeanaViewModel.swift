@@ -11,6 +11,7 @@ struct EuropeanaObject: Codable {
     let id: String
     let title: String
     let dataProvider: String  // Daten Provider
+    let year: String // Jahr
     
     let edmIsShownAt: URL  //link zu ganzem Resource
     let edmPreview: URL     //link zu Hauptbild
@@ -28,8 +29,11 @@ struct EuropeanaObject: Codable {
 }
 struct Items: Codable {
     
-    let  country: [String]
-    let  edmPreview: [String]
+    let title: [String]
+   // let year: String
+    let dataProvider: [String]
+    let country: [String]
+    let edmPreview: [String]
     
 }
 
@@ -44,6 +48,7 @@ struct EUData: Codable {
 class EuropeanaViewModel: ObservableObject {
     
     @Published var title: String = ""
+    
 
     func getInfo() {
         let url = URL(string: "https://api.europeana.eu/record/v2/search.json?profile=standard&query=Leonardo%2Bda%2BVinci&rows=2&start=1&wskey=cetaticithec")!
