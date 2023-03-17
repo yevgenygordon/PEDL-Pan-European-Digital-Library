@@ -8,8 +8,47 @@
 import SwiftUI
 
 struct CollectionView: View {
+    
+    @EnvironmentObject var authService: AuthService
+    @ObservedObject var viewModel = EuropeanaViewModel()
+    
     var body: some View {
-        Text("Collection View")
+        
+        
+        VStack {
+            Text("Hello \(authService.user?.email ?? "")")
+            
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+           
+            
+            Text(viewModel.title)
+                .background(Color.white)
+                .padding()
+                .font(.system(size: 23))
+            
+            
+            
+            Button(action: {
+                self.viewModel.getInfo()
+            }) {
+                Text("Get Data")
+                    .padding()
+                    .bold()
+                    .font(.system(size: 46))
+                    .background(Color.white)
+                    .cornerRadius(24)
+            }
+            
+            
+            Button("Log Out"){
+                authService.signOut()
+            }.padding(40)
+            
+        }
+        .padding()
+        
         
         
     }
@@ -17,6 +56,6 @@ struct CollectionView: View {
 
 struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView()
+        CollectionView().environmentObject(AuthService())
     }
 }
