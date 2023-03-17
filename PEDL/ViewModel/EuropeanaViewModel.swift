@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct EuropeanaObject: Codable {
     let id: String
@@ -48,6 +49,30 @@ struct EUData: Codable {
 class EuropeanaViewModel: ObservableObject {
     
     @Published var title: String = ""
+    @Published var theme = [CollectionTheme(themeName: "Maps and Geography", themeImage: Image("theme1") ),
+                            CollectionTheme(themeName: "Manuscripts", themeImage: Image("theme2")),
+                            CollectionTheme(themeName: "Industrial Heritage", themeImage: Image("theme3")),
+                            CollectionTheme(themeName: "Fashion", themeImage: Image("theme4")),
+                            CollectionTheme(themeName: "Art", themeImage: Image("theme5")),
+                            CollectionTheme(themeName: "Archaeology", themeImage: Image("theme6")),
+                            CollectionTheme(themeName: "Migration", themeImage: Image("theme7")),
+                            CollectionTheme(themeName: "Music", themeImage: Image("theme8")),
+                            CollectionTheme(themeName: "Natural History", themeImage: Image("theme9")),
+                            CollectionTheme(themeName: "Newspapers", themeImage: Image("theme10")),
+                            CollectionTheme(themeName: "Photography", themeImage: Image("theme11")),
+                            CollectionTheme(themeName: "Sport", themeImage: Image("theme12")),
+                            CollectionTheme(themeName: "World War I", themeImage: Image("theme13")),
+    ]
+    
+    @Published  var text :String = ""
+    @Published  var typOfMedia = 0
+    @Published  var searchtheme = 0
+    @Published  var providingCountry = ""
+    @Published  var count :Int = 0
+    @Published  var date :Date =  Date()
+                let language = ["Option 1", "Option 2", "Option 3", "Option 4"]
+    @Published  var selectedLanguage: Set<String> = []
+
     
 
     func getInfo() {

@@ -24,9 +24,36 @@ struct MainView: View {
                         .padding(16)
                     Spacer()
                     
-                }
+                    Image("button_Search")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 25)
+                        .padding(16)
+                    }
                 
-                Spacer() 
+                
+                
+                HStack{
+                    ScrollView(.horizontal, showsIndicators: false){
+                        LazyHStack(spacing: 50){
+                            
+                            ForEach(viewModel.theme){ theme in
+                                
+                                GeometryReader { geometry in
+                                    theme.themeImage
+                                        .rotation3DEffect(Angle(degrees: geometry.frame(in: .global).minX - 20) / -20, axis: (x: 0, y: 10, z: 0))
+                                        .shadow(color: Color.gray, radius: 10,x: 5,y: 5 )
+                                }
+                                .frame(width: 195)
+                                
+                               }
+                            
+                            }
+                        }
+                }
+                .padding(16)
+                
+                Spacer()
                 
             }
             

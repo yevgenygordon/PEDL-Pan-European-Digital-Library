@@ -16,21 +16,31 @@ struct ProfilView: View {
     @State var familyName: String
     @State var email: String
     @State var birthday = Date()
+    @State var color: String
     @State var blackMode: Bool
     
     var body: some View {
         VStack {
-            // First Name Textfield
-            TextField("First Name", text: $firstName)
-                .padding()
             
-            // Family Name Textfield
-            TextField("Family Name", text: $familyName)
-                .padding()
             
-            // Email Textfield
-            TextField("Email", text: $email)
-                .padding()
+            HStack{
+                Image(systemName: "person.circle.fill")
+                
+                // First Name Textfield
+                TextField("First Name", text: $firstName)
+                   
+                
+                // Family Name Textfield
+                TextField("Family Name", text: $familyName)
+                   
+            } .padding()
+            
+            HStack(){
+                // Email Textfield
+                TextField("Email", text: $email)
+                } .padding()
+            
+           
             
             // Birthday Datepicker
             DatePicker(selection: $birthday, in: ...Date(), displayedComponents: .date) {
@@ -38,7 +48,13 @@ struct ProfilView: View {
             }
             .padding()
             
-        
+            // Color Picker
+            Picker("Color", selection: $color) {
+                Text("Red").tag("Red")
+                Text("Green").tag("Green")
+                Text("Blue").tag("Blue")
+            }
+            .padding()
             
             // Black mode Toggle
             Toggle("Black Mode", isOn: $blackMode)
@@ -66,6 +82,6 @@ struct ProfilView: View {
 
 struct ProfilView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilView(firstName: "Vasilij", familyName: "Terkin", email: "vt@mail.ru", color: "", blackMode: false)
+        ProfilView(firstName: "Vasilij", familyName: "Terkin", email: "vt@mail.ru", color: "Red", blackMode: false)
     }
 }
