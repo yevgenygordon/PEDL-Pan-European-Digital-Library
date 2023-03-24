@@ -15,7 +15,7 @@ struct ItemView: View {
         VStack {
             Text("Hello \(authService.user?.email ?? "")")
             
-            Image(systemName: "globe")
+            Image("theme1")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
            

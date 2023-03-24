@@ -68,9 +68,17 @@ struct FindView: View {
                         Button("Select"){
                             
                         }
-                        
                     }
-                    
+                  }
+                
+                Section{
+                    HStack {
+                        Text("Institution")
+                        Spacer()
+                        Button("Select"){
+                            
+                        }
+                     }
                   }
                 
                 
