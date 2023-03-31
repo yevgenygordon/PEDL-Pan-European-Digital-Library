@@ -19,7 +19,7 @@ struct ContentView: View {
                 TabView(selection: .constant(1)){
                    
                     
-                    CollectionView()
+                    ResultsView()
                         .tabItem({
                             Label("My Collection",image: "button_myCollection")
                         })

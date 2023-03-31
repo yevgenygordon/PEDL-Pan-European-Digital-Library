@@ -28,15 +28,25 @@ struct EuropeanaObject: Codable {
     
     // weitere relevante Felder, die von der API zurückgegeben werden
 }
-struct Items: Codable {
-    
+struct Items: Codable, Hashable {
+  
     let title: [String]
-   // let year: String
-    let dataProvider: [String]
     let country: [String]
     let edmPreview: [String]
+   // let year: String
+  //  var dcLanguage: [String]
+    let dataProvider: [String]
+  //  let edmIsShownAt: [String]
+   // let dcCreator: [String]
+    
+   
+    //   let dcCreatorLangAware: [DcCreatorLangAware]
     
 }
+struct DcCreatorLangAware {
+    let def: [String]
+}
+
 
 struct EUData: Codable {
     var items: [Items] = []
@@ -48,7 +58,15 @@ struct EUData: Codable {
 
 class EuropeanaViewModel: ObservableObject {
     
-    @Published var title: String = ""
+    
+    @Published var edmPreview = "https://images.dog.ceo/breeds/affenpinscher/n02110627_6965.jpg"
+    @Published var title: String = "vasja"
+    @Published var itemsCollection: EUData = EUData()
+    
+    @Published var items:[Items] = []
+    
+    
+    
     @Published var theme = [CollectionTheme(themeName: "Maps and Geography", themeImage: Image("theme1") ),
                             CollectionTheme(themeName: "Manuscripts", themeImage: Image("theme2")),
                             CollectionTheme(themeName: "Industrial Heritage", themeImage: Image("theme3")),
@@ -59,12 +77,11 @@ class EuropeanaViewModel: ObservableObject {
                             CollectionTheme(themeName: "Music", themeImage: Image("theme8")),
                             CollectionTheme(themeName: "Natural History", themeImage: Image("theme9")),
                             CollectionTheme(themeName: "Newspapers", themeImage: Image("theme10")),
-                            CollectionTheme(themeName: "Photography", themeImage: Image("theme11")),
-                            CollectionTheme(themeName: "Sport", themeImage: Image("theme12")),
-                            CollectionTheme(themeName: "World War I", themeImage: Image("theme13")),
+                            
     ]
-    
-    @Published  var text :String = ""
+    @Published  var searchText = ""
+    @Published  var text :String = "Leonardo%2Bda%2BVinci"
+    @Published  var findMe :String = "Leonardo%2Bda%2BVinci"
     @Published  var typOfMedia = 0
     @Published  var searchtheme = 0
     @Published  var providingCountry = ""
@@ -75,26 +92,41 @@ class EuropeanaViewModel: ObservableObject {
 
     
 
-    func getInfo() {
-        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?profile=standard&query=Leonardo%2Bda%2BVinci&rows=2&start=1&wskey=cetaticithec")!
+    func getInfo(findMe: String) {
+       let findMe = convertSpaces(input: findMe)
+       let rows = 2
+       let lang = "de"
+        
+   
+
+        
+        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?lang=\(lang)&media=true&profile=standard&query=\(findMe)&rows=\(rows)&start=1&thumbnail=true&wskey=cetaticithec%20")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {
                 let decodedData = try JSONDecoder().decode(EUData.self, from: data)
                 DispatchQueue.main.async {
-                    self.title = decodedData.items[1].country[0]
+                    
+                    self.items = decodedData.items
+                    
+                   // self.title = decodedData.items[3].title[0]
+                   
+                   
                 }
             } catch {
                 print(error)
+                print("API nicht geladen")
             }
         }
         task.resume()
     }
 
-    struct Joke: Codable {
-        let value: String
+   
+    func convertSpaces(input: String) -> String {
+        let result = input.replacingOccurrences(of: " ", with: "%2B")
+        return result
     }
-    
+
     
     
     

@@ -13,22 +13,27 @@ struct ItemView: View {
     var body: some View {
        
         VStack {
-            Text("Hello \(authService.user?.email ?? "")")
+           
+            Text(viewModel.title)
+                .background(Color.white)
+                .padding()
+                .font(.system(size: 23))
+            Text(viewModel.items[5].title[0])
+                .background(Color.white)
+                .padding()
+                .font(.system(size: 23))
             
             Image("theme1")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
            
             
-            Text(viewModel.title)
-                .background(Color.white)
-                .padding()
-                .font(.system(size: 23))
+            
             
             
             
             Button(action: {
-                self.viewModel.getInfo()
+                self.viewModel.getInfo(findMe: "Leonardo")
             }) {
                 Text("Get Data")
                     .padding()

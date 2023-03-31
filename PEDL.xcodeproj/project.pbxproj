@@ -30,6 +30,10 @@
 		546FACD2299E757C00C2ACF2 /* EuropeanaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546FACD1299E757C00C2ACF2 /* EuropeanaViewModel.swift */; };
 		54BCBCA229C1B8BC00511F0F /* CollectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCA129C1B8BC00511F0F /* CollectionTheme.swift */; };
 		54BCBCA429C4832000511F0F /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCA329C4832000511F0F /* LanguageView.swift */; };
+		54BCBCA629D2EA1F00511F0F /* ImageURLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCA529D2EA1F00511F0F /* ImageURLService.swift */; };
+		54BCBCA829D4752500511F0F /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCA729D4752500511F0F /* MyCollectionView.swift */; };
+		54BCBCAA29D5A34500511F0F /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCA929D5A34500511F0F /* ResultsView.swift */; };
+		54BCBCAC29D6D7BD00511F0F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BCBCAB29D6D7BC00511F0F /* WebView.swift */; };
 		54EB1DED29B242D900A1EF46 /* FireStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EB1DEC29B242D900A1EF46 /* FireStoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +57,10 @@
 		546FACD1299E757C00C2ACF2 /* EuropeanaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuropeanaViewModel.swift; sourceTree = "<group>"; };
 		54BCBCA129C1B8BC00511F0F /* CollectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTheme.swift; sourceTree = "<group>"; };
 		54BCBCA329C4832000511F0F /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		54BCBCA529D2EA1F00511F0F /* ImageURLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLService.swift; sourceTree = "<group>"; };
+		54BCBCA729D4752500511F0F /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
+		54BCBCA929D5A34500511F0F /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		54BCBCAB29D6D7BC00511F0F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		54EB1DEC29B242D900A1EF46 /* FireStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				5424F67B29A7731000E83983 /* AuthService.swift */,
+				54BCBCA529D2EA1F00511F0F /* ImageURLService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -159,6 +168,9 @@
 				5424F68829AF519F00E83983 /* DetailView.swift */,
 				5424F69F29AFA1F200E83983 /* FindView.swift */,
 				54BCBCA329C4832000511F0F /* LanguageView.swift */,
+				54BCBCA729D4752500511F0F /* MyCollectionView.swift */,
+				54BCBCA929D5A34500511F0F /* ResultsView.swift */,
+				54BCBCAB29D6D7BC00511F0F /* WebView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,19 +258,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				546FACD2299E757C00C2ACF2 /* EuropeanaViewModel.swift in Sources */,
+				54BCBCAA29D5A34500511F0F /* ResultsView.swift in Sources */,
 				5424F68329AF4F9C00E83983 /* ProfilView.swift in Sources */,
 				54BCBCA429C4832000511F0F /* LanguageView.swift in Sources */,
 				5424F68129A77E4F00E83983 /* MainView.swift in Sources */,
 				54BCBCA229C1B8BC00511F0F /* CollectionTheme.swift in Sources */,
 				5424F68929AF519F00E83983 /* DetailView.swift in Sources */,
 				546FACC2299E70C600C2ACF2 /* ContentView.swift in Sources */,
+				54BCBCA629D2EA1F00511F0F /* ImageURLService.swift in Sources */,
 				5424F6A029AFA1F200E83983 /* FindView.swift in Sources */,
 				5424F68729AF517A00E83983 /* ItemView.swift in Sources */,
 				546FACC0299E70C600C2ACF2 /* PEDLApp.swift in Sources */,
 				5424F68B29AF769200E83983 /* UserProfil.swift in Sources */,
+				54BCBCAC29D6D7BD00511F0F /* WebView.swift in Sources */,
 				5424F67F29A77E2800E83983 /* LoginView.swift in Sources */,
 				5424F68529AF507F00E83983 /* CollectionView.swift in Sources */,
 				5424F67C29A7731000E83983 /* AuthService.swift in Sources */,
+				54BCBCA829D4752500511F0F /* MyCollectionView.swift in Sources */,
 				54EB1DED29B242D900A1EF46 /* FireStoreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
