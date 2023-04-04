@@ -33,11 +33,12 @@ struct Items: Codable, Hashable {
     let title: [String]
     let country: [String]
     let edmPreview: [String]
-   // let year: String
-  //  var dcLanguage: [String]
+    let year: [String]?
+    var language: [String]?
     let dataProvider: [String]
-  //  let edmIsShownAt: [String]
-   // let dcCreator: [String]
+    let edmIsShownAt: [String]?
+    let dcCreator: [String]?
+    let type: String
     
    
     //   let dcCreatorLangAware: [DcCreatorLangAware]
@@ -57,6 +58,8 @@ struct EUData: Codable {
 
 
 class EuropeanaViewModel: ObservableObject {
+    
+   // @Published var curentItem : Items
     
     
     @Published var edmPreview = "https://images.dog.ceo/breeds/affenpinscher/n02110627_6965.jpg"
@@ -94,13 +97,14 @@ class EuropeanaViewModel: ObservableObject {
 
     func getInfo(findMe: String) {
        let findMe = convertSpaces(input: findMe)
-       let rows = 2
+       let rows = 99
        let lang = "de"
+       let siteCounter = 1
         
    
 
         
-        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?lang=\(lang)&media=true&profile=standard&query=\(findMe)&rows=\(rows)&start=1&thumbnail=true&wskey=cetaticithec%20")!
+        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?landingpage=true&lang=\(lang)&media=true&profile=standard&query=\(findMe)&rows=\(rows)&start=100&thumbnail=true&wskey=cetaticithec%20")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {

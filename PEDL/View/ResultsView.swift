@@ -11,6 +11,8 @@ struct ResultsView: View {
     @EnvironmentObject var authService: AuthService
     @ObservedObject var viewModel = EuropeanaViewModel()
     
+   
+    
     @State var showContactDetail: Bool = false
     @State var alertOn: Bool = false
     @State var selectedIndex : Int = 0
@@ -24,7 +26,7 @@ struct ResultsView: View {
                     ForEach(viewModel.items, id: \.self){item in
                         
                         HStack{
-                            NavigationLink(destination: DetailView()) {
+                            NavigationLink(destination: DetailView( item: item)) {
                                 AsyncImage(url: URL(string: item.edmPreview[0])) { phase in
                                     switch phase {
                                     case .empty:
@@ -50,11 +52,20 @@ struct ResultsView: View {
                                     //   .multilineTextAlignment(.leading)
                                         .padding(.bottom, 16)
                                     
+                                    Text("\(item.type)")
+                                        .font(.system(size: 14,weight: .semibold,design: .rounded))
+                                    //   .multilineTextAlignment(.leading)
+                                        .padding(.bottom, 16)
+                                    
                                     
                                     
                                     Text("\(item.dataProvider[0])")
                                         .font(.system(size: 14,weight: .thin, design: .rounded))
                                         .multilineTextAlignment(.leading)
+                                    
+                                    Spacer()
+                                    
+                                 
                                     
                                    
                                     
