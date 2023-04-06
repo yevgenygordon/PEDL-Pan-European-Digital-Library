@@ -79,19 +79,19 @@ struct ResultsView: View {
                 .toolbar(content: {
                     
                     TextField("Search", text: $searchText)
-                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+                        .frame(width: 300)
+                    
+                    Spacer()
                    
                     Button(action: {
                         self.viewModel.getInfo(findMe: searchText)
                     }) {
-                        Text("Get Data")
-                            
-                            .bold()
-                            .font(.system(size: 18))
-                            .background(Color.white)
-                            .cornerRadius(24)
+                       Image(systemName: "magnifyingglass.circle")
                     }
                 })
+                
                 
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             }

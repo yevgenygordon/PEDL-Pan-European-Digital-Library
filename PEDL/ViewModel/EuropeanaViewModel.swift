@@ -104,7 +104,7 @@ class EuropeanaViewModel: ObservableObject {
    
 
         
-        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?landingpage=true&lang=\(lang)&media=true&profile=standard&query=\(findMe)&rows=\(rows)&start=100&thumbnail=true&wskey=cetaticithec%20")!
+        let url = URL(string: "https://api.europeana.eu/record/v2/search.json?landingpage=true&lang=\(lang)&media=true&profile=standard&query=\(findMe)&rows=\(rows)&start=\(siteCounter)&thumbnail=true&wskey=cetaticithec%20")!
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
             do {

@@ -29,7 +29,7 @@ struct ContentView: View {
                             Label("Home", image: "button_Home")
                         })
                         .tag(1)
-                    ProfilView(firstName: "Vasilij", familyName: "Terkin", email: "vt@mail.ru", color: "", blackMode: false)
+                    ProfilView(firstName: "Vasilij", email: "vt@mail.ru", color: "", blackMode: false)
                         .tabItem({
                             Label("Profil", image: "button_Profil")
                         })

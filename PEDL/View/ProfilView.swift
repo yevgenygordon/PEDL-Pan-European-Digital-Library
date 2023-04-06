@@ -11,9 +11,9 @@ struct ProfilView: View {
     
     @EnvironmentObject var authService: AuthService
     @ObservedObject var viewModel = EuropeanaViewModel()
+    let fireStoreModel = FireStoreViewModel()
     // Properties
     @State var firstName: String
-    @State var familyName: String
     @State var email: String
     @State var birthday = Date()
     @State var color: String
@@ -30,8 +30,7 @@ struct ProfilView: View {
                 TextField("First Name", text: $firstName)
                    
                 
-                // Family Name Textfield
-                TextField("Family Name", text: $familyName)
+               
                    
             } .padding()
             
@@ -57,12 +56,15 @@ struct ProfilView: View {
             .padding()
             
             // Black mode Toggle
-            Toggle("Black Mode", isOn: $blackMode)
+            Toggle("Show Collection", isOn: $blackMode)
                 .padding()
             
             // Save Button
             Button(action: {
-                // TODO: Implement save action
+                
+               
+                fireStoreModel.writeData(pedlUserPath: authService.user!.uid)
+                
             }) {
                 Text("Save")
                     .fontWeight(.bold)
@@ -73,6 +75,10 @@ struct ProfilView: View {
             }
             .padding()
             
+            Button("Log Out"){
+                authService.signOut()
+            }.padding(40)
+            
             Spacer()
         }
         
@@ -82,6 +88,6 @@ struct ProfilView: View {
 
 struct ProfilView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfilView(firstName: "Vasilij", familyName: "Terkin", email: "vt@mail.ru", color: "Red", blackMode: false)
+        ProfilView(firstName: "Vasilij", email: "vt@mail.ru", color: "Red", blackMode: false)
     }
 }

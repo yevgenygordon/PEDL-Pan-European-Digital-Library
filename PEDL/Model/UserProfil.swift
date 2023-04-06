@@ -13,12 +13,11 @@ import SwiftUI
 
 struct UserProfil : Identifiable, Codable{
     @DocumentID var id : String? = UUID().uuidString
-    var personFirstName : String
-    var personfamilyName: String
+    var personName : String
     var personEmail: String
     var personBirthday = Date()
   //  var personColor: String
     var blackMode: Bool
-    
+    var showColection: Bool
     var alertEditProfil :Bool = false
 }

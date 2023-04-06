@@ -25,6 +25,13 @@ struct DetailView: View {
             Text(item.country[0])
             Text(item.language?[0] ?? "nix da")
             Text(item.year?[0] ?? "nix da")
+            
+            
+            Button(action: {
+                
+            }) {
+               Image(systemName: "magnifyingglass.circle")
+            }
         }
         
         
@@ -36,10 +43,5 @@ struct DetailView: View {
     }
 }
 
-/*
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(item: Items(title: [""], country: [""], edmPreview: [""], year: [""], dataProvider: [""], edmIsShownAt: [""], dcCreator: [""])).environmentObject(AuthService())
-    }
- }
- */
+
+
