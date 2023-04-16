@@ -60,6 +60,8 @@ struct EUData: Codable {
 class EuropeanaViewModel: ObservableObject {
     
    // @Published var curentItem : Items
+    @Published var showFindView = false
+    
     
     
     @Published var edmPreview = "https://images.dog.ceo/breeds/affenpinscher/n02110627_6965.jpg"

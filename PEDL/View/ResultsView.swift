@@ -78,10 +78,18 @@ struct ResultsView: View {
                 }
                 .toolbar(content: {
                     
+                    Button(action: {
+                        viewModel.showFindView.toggle()
+                    }) {
+                       Image(systemName: "xmark")
+                    }
+                    .frame(alignment: .leading)
+                    
                     TextField("Search", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
-                        .frame(width: 300)
+                        .frame(width: 250)
+                    
                     
                     Spacer()
                    
@@ -93,7 +101,7 @@ struct ResultsView: View {
                 })
                 
                 
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+             
             }
             
             
@@ -102,6 +110,8 @@ struct ResultsView: View {
             
             
         }
+        .offset(y: viewModel.showFindView ? 1000 : 0)
+        
     }
     
 }

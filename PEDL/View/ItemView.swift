@@ -10,53 +10,32 @@ import SwiftUI
 struct ItemView: View {
     @EnvironmentObject var authService: AuthService
     @ObservedObject var viewModel = EuropeanaViewModel()
+    @State private var scale: CGFloat = 1.0
+    let item: Items
+    
     var body: some View {
        
         VStack {
+            
+            NavigationView {
+               // WebView(url: URL(string: "https://www.otpusk24.de")!)
+                WebView(url: URL(string: item.edmIsShownAt?[0] ?? "https://www.otpusk24.de")!)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    
+                    }
            
-            Text(viewModel.title)
-                .background(Color.white)
-                .padding()
-                .font(.system(size: 23))
-            Text(viewModel.items[5].title[0])
-                .background(Color.white)
-                .padding()
-                .font(.system(size: 23))
-            
-            Image("theme1")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-           
-            
-            
-            
-            
-            
-            Button(action: {
-                self.viewModel.getInfo(findMe: "Leonardo")
-            }) {
-                Text("Get Data")
-                    .padding()
-                    .bold()
-                    .font(.system(size: 46))
-                    .background(Color.white)
-                    .cornerRadius(24)
-            }
-            
-            
-            Button("Log Out"){
-                authService.signOut()
-            }.padding(40)
-            
-        }
+             
+          }
         .padding()
         
         
     }
 }
+/*
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView().environmentObject(AuthService())
+        ItemView(, item: I).environmentObject(AuthService())
     }
-}
+ }
+ */

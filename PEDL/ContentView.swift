@@ -17,9 +17,11 @@ struct ContentView: View {
               
                 
                 TabView(selection: .constant(1)){
+                    
+                   
                    
                     
-                    ResultsView()
+                    MyCollectionView()
                         .tabItem({
                             Label("My Collection",image: "button_myCollection")
                         })
@@ -29,7 +31,7 @@ struct ContentView: View {
                             Label("Home", image: "button_Home")
                         })
                         .tag(1)
-                    ProfilView(firstName: "Vasilij", email: "vt@mail.ru", color: "", blackMode: false)
+                    ProfilView(personName: "Vasilij", email: "vt@mail.ru", color: "", showCollection: false)
                         .tabItem({
                             Label("Profil", image: "button_Profil")
                         })

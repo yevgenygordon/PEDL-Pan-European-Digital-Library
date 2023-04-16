@@ -16,11 +16,31 @@ import FirebaseFirestore
 class FireStoreViewModel {
     
     var authService: AuthService = AuthService()
-     let db = Firestore.firestore()
-    private var pedlUserPath :String = "pedlUser"
+    let db = Firestore.firestore()
+  //  private var pedlUserPath :String = "pedlUser"
+    
+    
+    
+    func loadUserProfiles(completion: @escaping ([UserProfil]) -> Void) {
+            db.collection("UserProfil").getDocuments { querySnapshot, error in
+                if let error = error {
+                    print("Error getting documents: \(error.localizedDescription)")
+                    completion([])
+                } else {
+                    var userProfiles = [UserProfil]()
+                    for document in querySnapshot!.documents {
+                        if let userProfile = UserProfil(dictionary: document.data()) {
+                            userProfiles.append(userProfile)
+                        }
+                    }
+                    completion(userProfiles)
+                }
+            }
+        }
+    
     
     func fetchData(completion: @escaping ([String: Any]) -> Void) {
-        db.collection("myCollection").getDocuments { snapshot, error in
+        db.collection(authService.user!.uid).getDocuments { snapshot, error in
             if let error = error {
                 print("Error fetching data: \(error.localizedDescription)")
                 return
@@ -29,26 +49,35 @@ class FireStoreViewModel {
                 print("No data found.")
                 return
             }
-            var data = [String: Any]()
+            var userData = [String: Any]()
             for document in snapshot.documents {
                 let documentData = document.data()
-                data[document.documentID] = documentData
+            //    let personName = data[document.documentID] as? String ?? ""
+              //  let personEmail = data[document.personName] as? String ?? ""
+                userData[document.documentID] = documentData
+               
             }
-            completion(data)
+            completion(userData)
         }
     }
     
     
     
+   
     
-    func writeData(pedlUserPath: String) {
+    
+    
+    
+    
+    func writeProfilData(pedlUserPath: String, personName: String, personBirthday: Date, showCollection: Bool) {
         let data = [
-            "name": "John Doe111",
-            "age": 30,
-            "email": "johndoe@example.com"
+            "personName": "\(personName)",
+            "personBirthday": personBirthday,
+            "showCollection": showCollection,
+           
         ] as [String : Any]
         
-        db.collection(pedlUserPath).document("johndoe").setData(data) { error in
+        db.collection(pedlUserPath).document("UserProfil").setData(data) { error in
             if let error = error {
                 print("Error writing document: \(error.localizedDescription)")
             } else {
@@ -56,6 +85,38 @@ class FireStoreViewModel {
             }
         }
     }
+    
+    func writeCollectionData(pedlUserPath: String, item:Items) {
+        
+        let data = [
+            "title": item.title[0],
+            "country": item.country[0],
+            "edmPreview": item.edmPreview[0],
+            "year": item.year?[0] ?? "",
+            "language": item.language?[0] ?? "",
+            "dataProvider": item.dataProvider[0],
+            "edmIsShownAt": item.edmIsShownAt?[0] ?? "",
+            "dcCreator": item.dcCreator?[0] ?? "",
+           
+            
+            
+            
+           
+        ] as [String : Any]
+        
+      
+        
+        db.collection(pedlUserPath).document("UserCollection").collection(item.dataProvider[0]).document().setData(data) { error in
+            if let error = error {
+                print("Error writing document: \(error.localizedDescription)")
+            } else {
+                print("Document successfully written.")
+            }
+        }
+    }
+    
+    
+    
     
 }
 
