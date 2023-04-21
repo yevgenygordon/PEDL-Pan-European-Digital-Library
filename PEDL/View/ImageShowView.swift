@@ -34,7 +34,9 @@ struct ImageShowView: View {
                      //   .aspectRatio(contentMode: .fit)
                         .padding()
                     
-                    //Problem (bleibt nach gesture haengen)
+                    /* Problem (bleibt nach gesture haengen)
+                     */
+                     
                         .gesture(DragGesture()
                                         .onChanged { gesture in
                                             offset = gesture.translation
@@ -43,9 +45,9 @@ struct ImageShowView: View {
                                             offset = CGSize.zero
                                         }
                                     )
-                                    .offset(x: offset.width, y: offset.height)
+                        .offset(x: offset.width, y: offset.height)
                     
-                    
+                  
                     
                 case .failure(let error):
                     Text("Failed to load image: \(error.localizedDescription)")

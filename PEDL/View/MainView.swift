@@ -13,6 +13,7 @@ struct MainView: View {
     
   //  @State var showFindView = false
     @State var viewState = CGSize.zero
+   
     
     let myColor = Color(_ColorLiteralType(red: 52, green: 152, blue: 219, alpha: 100))
     
@@ -84,9 +85,19 @@ struct MainView: View {
                             ForEach(viewModel.theme){ theme in
                                 
                                 GeometryReader { geometry in
-                                    theme.themeImage
-                                        .rotation3DEffect(Angle(degrees: geometry.frame(in: .global).minX - 20) / -20, axis: (x: 0, y: 10, z: 0))
-                                        .shadow(color: Color.gray, radius: 10,x: 5,y: 5 )
+                                    
+                                    Button(action: {
+                                        viewModel.showInternetView.toggle()
+                                        viewModel.urlLink = "https://www.europeana.eu/en/themes/\(viewModel.convertSpacesToMinus(input: theme.themeName).lowercased())"
+                                        
+                                    }){
+                                        
+                                        theme.themeImage
+                                            .rotation3DEffect(Angle(degrees: geometry.frame(in: .global).minX - 20) / -20, axis: (x: 0, y: 10, z: 0))
+                                            .shadow(color: Color.gray, radius: 10,x: 5,y: 5 )
+                                        
+                                    }
+                                    
                                 }
                                 .frame(width: 195)
                                }
@@ -96,10 +107,17 @@ struct MainView: View {
                 .padding(.horizontal, 16)
                 .padding(.top, 8)
                 
-               
-               StorisView()
-                    .offset(y: -50)
                 
+                Button(action: {
+                    viewModel.showInternetView.toggle()
+                    viewModel.urlLink = "https://www.europeana.eu/en/stories"
+                    
+                }){
+                    StorisView()
+                }
+                .offset(y: -50)
+                
+               
               
                 
             }
@@ -113,6 +131,13 @@ struct MainView: View {
                 .offset(y: viewModel.showFindView ? 0 : 1000)
                 .offset(y: viewState.height)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            
+            InternetView(url: viewModel.urlLink)
+                .offset(y: viewModel.showInternetView ? 0 : 1000)
+                .offset(y: viewState.height)
+              //  .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            
+            
              //   .onTapGesture {
               //      self.showFindView.toggle()
               //  }

@@ -61,11 +61,15 @@ class EuropeanaViewModel: ObservableObject {
     
    // @Published var curentItem : Items
     @Published var showFindView = false
+    @Published var showInternetView = false
+    @Published var showResult: Bool?
+    @Published var collectionSite = 1
+    @Published var urlLink = "https://www.europeana.eu"
     
     
     
-    @Published var edmPreview = "https://images.dog.ceo/breeds/affenpinscher/n02110627_6965.jpg"
-    @Published var title: String = "vasja"
+ //   @Published var edmPreview = "https://images.dog.ceo/breeds/affenpinscher/n02110627_6965.jpg"
+  //  @Published var title: String = "vasja"
     @Published var itemsCollection: EUData = EUData()
     
     @Published var items:[Items] = []
@@ -99,9 +103,9 @@ class EuropeanaViewModel: ObservableObject {
 
     func getInfo(findMe: String) {
        let findMe = convertSpaces(input: findMe)
-       let rows = 99
+       let rows = 100
        let lang = "de"
-       let siteCounter = 1
+       let siteCounter = (collectionSite * 100) - 99
         
    
 
@@ -133,7 +137,10 @@ class EuropeanaViewModel: ObservableObject {
         return result
     }
 
-    
+    func convertSpacesToMinus(input: String) -> String {
+        let result = input.replacingOccurrences(of: " ", with: "-")
+        return result
+    }
     
     
     

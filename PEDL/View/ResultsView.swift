@@ -13,7 +13,7 @@ struct ResultsView: View {
     
    
     
-    @State var showContactDetail: Bool = false
+    @State var showDetail: Bool = false
     @State var alertOn: Bool = false
     @State var selectedIndex : Int = 0
     @State private var searchText = ""
@@ -25,8 +25,15 @@ struct ResultsView: View {
                 List{
                     ForEach(viewModel.items, id: \.self){item in
                         
+                        // mit isActive spring zu falschen detail
+                        
                         HStack{
-                            NavigationLink(destination: DetailView( item: item)) {
+                            NavigationLink(destination: DetailView( item: item)
+                                .onAppear
+                                    {
+                                        self.showDetail = true
+                                    }
+                                ) {
                                 AsyncImage(url: URL(string: item.edmPreview[0])) { phase in
                                     switch phase {
                                     case .empty:
@@ -85,6 +92,8 @@ struct ResultsView: View {
                     }
                     .frame(alignment: .leading)
                     
+                    Spacer()
+                    
                     TextField("Search", text: $searchText)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding()
@@ -95,18 +104,80 @@ struct ResultsView: View {
                    
                     Button(action: {
                         self.viewModel.getInfo(findMe: searchText)
+                        viewModel.showResult = true
                     }) {
                        Image(systemName: "magnifyingglass.circle")
                     }
                 })
+                .onAppear
+                    {
+                        self.showDetail = false
+                    }
                 
                 
+               
              
             }
             
+          
+            if !showDetail && (viewModel.showResult != nil) {
+                
+                HStack {
+                   
+                    
+                        Button(action: {
+                            
+                            if viewModel.collectionSite > 1 {
+                                
+                            viewModel.collectionSite = viewModel.collectionSite - 1
+                                self.viewModel.getInfo(findMe: searchText)
+                            }
+                            
+                        }, label: {
+                            Image(systemName: "chevron.left.square.fill")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(.largeTitle))
+                            
+                        })
+                        
+                   
+                    Spacer()
+                     
+                    
+                    
+                    Text("Seite ")
+                        .foregroundColor(Color.white)
+                    
+                     Text("\(viewModel.collectionSite)")
+                        .foregroundColor(Color.white)
+                    
+                    Spacer()
+                    
+                    
+                    
+                        Button(action: {
+                            if viewModel.collectionSite < 9 {
+                            viewModel.collectionSite = viewModel.collectionSite + 1
+                                self.viewModel.getInfo(findMe: searchText)
+                            }
+                        }, label: {
+                            Image(systemName: "chevron.right.square.fill")
+                            .foregroundColor(Color.white)
+                            .font(Font.system(.largeTitle))
+                        })
+                        
+                    
+                                      
+                                  }
+                .cornerRadius(25)
+                .frame(width: 250)
+                .background(Color(red: 63 / 255, green: 87 / 255, blue: 106 / 255))
+                .offset(y:320)
+                
+            }
             
-            
-            
+           
+           
             
             
         }

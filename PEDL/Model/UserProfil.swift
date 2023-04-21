@@ -14,12 +14,12 @@ import SwiftUI
 struct UserProfil : Identifiable, Codable{
     @DocumentID var id : String? = UUID().uuidString
     var personName : String
-    var personEmail: String
+  //  var personEmail: String
     var personBirthday = Date()
   
     var showCollection: Bool
     
-    
+  /*
     init?(dictionary: [String: Any]) {
         guard let personName = dictionary["personName"] as? String,
               let personEmail = dictionary["personEmail"] as? String,
@@ -34,7 +34,8 @@ struct UserProfil : Identifiable, Codable{
             self.personBirthday = timestamp.dateValue()
         }
     }
- 
+ */
+    
 }
 //   var alertEditProfil :Bool = false
    //  var personColor: String
